@@ -1,0 +1,150 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.employeeprofile._id ? 'Edit Employeeprofile' : 'New Employeeprofile'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.employeeprofileForm" class="form-horizontal" ng-submit="vm.save(vm.form.employeeprofileForm.$valid)"
+      novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="email">email</label>
+          <input name="email" type="text" ng-model="vm.employeeprofile.email" id="email" class="form-control" placeholder="email" required>
+          <div ng-messages="vm.form.employeeprofileForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">email is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="officeAddress">officeAddress</label>
+          <input name="officeAddress" type="text" ng-model="vm.employeeprofile.officeAddress" id="officeAddress" class="form-control"
+            placeholder="officeAddress">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="jobTitle">jobTitle</label>
+          <input name="jobTitle" type="text" ng-model="vm.employeeprofile.jobTitle" id="jobTitle" class="form-control" placeholder="jobTitle">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="Line">Line</label>
+          <input name="Line" type="text" ng-model="vm.employeeprofile.Line" id="Line" class="form-control" placeholder="Line">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="Tel">Tel</label>
+          <input name="Tel" type="text" ng-model="vm.employeeprofile.Tel" id="Tel" class="form-control" placeholder="Tel">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="Facebook">Facebook</label>
+          <input name="Facebook" type="text" ng-model="vm.employeeprofile.Facebook" id="Facebook" class="form-control" placeholder="Facebook">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="deviceId">deviceId</label>
+          <input name="deviceId" type="text" ng-model="vm.employeeprofile.deviceId" id="deviceId" class="form-control" placeholder="deviceId">
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="form-group text-center">
+                  <img ng-src="{{vm.product.images}}" alt="{{vm.product.name}}" class="img-rounded img-product-detail">
+                </div>
+                <div class="text-center form-group" ng-hide="uploader.queue.length">
+                  <span class="btn btn-success btn-file">
+              Select Image <input type="file" nv-file-select uploader="uploader">
+          </span>
+                </div>
+                <div class="text-center form-group" ng-show="uploader.queue.length">
+                  <button class="btn btn-primary" ng-click="uploadProfilePicture();">Upload</button>
+                  <button class="btn btn-default" ng-click="cancelUpload();">Cancel</button>
+                </div>
+                <div ng-show="success" class="text-center text-success">
+                  <strong>Profile Picture Changed Successfully</strong>
+                </div>
+                <div ng-show="error" class="text-center text-danger">
+                  <strong ng-bind="error"></strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="firstName">firstName</label>
+          <input name="firstName" type="text" ng-model="vm.employeeprofile.firstName" id="firstName" class="form-control" placeholder="firstName">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="lastName">lastName</label>
+          <input name="lastName" type="text" ng-model="vm.employeeprofile.lastName" id="lastName" class="form-control" placeholder="lastName">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="platform">platform</label>
+          <input name="platform" type="text" ng-model="vm.employeeprofile.platform" id="platform" class="form-control" placeholder="platform">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="pincode">pincode</label>
+          <input name="pincode" type="text" ng-model="vm.employeeprofile.pincode" id="pincode" class="form-control" placeholder="pincode">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="userName">userName</label>
+          <input name="userName" type="text" ng-model="vm.employeeprofile.userName" id="userName" class="form-control" placeholder="userName">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="mobile">mobile</label>
+          <input name="mobile" type="text" ng-model="vm.employeeprofile.mobile" id="mobile" class="form-control" placeholder="mobile">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="ascCode">ascCode</label>
+          <input name="ascCode" type="text" ng-model="vm.employeeprofileForm.ascCode" id="ascCode" class="form-control" placeholder="ascCode">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="departmentCode">departmentCode</label>
+          <input name="departmentCode" type="text" ng-model="vm.employeeprofile.departmentCode" id="departmentCode" class="form-control"
+            placeholder="departmentCode">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="groupLocation">groupLocation</label>
+          <input name="groupLocation" type="text" ng-model="vm.employeeprofile.groupLocation" id="groupLocation" class="form-control"
+            placeholder="groupLocation">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="locationCode">locationCode</label>
+          <input name="locationCode" type="text" ng-model="vm.employeeprofile.locationCode" id="locationCode" class="form-control"
+            placeholder="locationCode">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="positionByJob">positionByJob</label>
+          <input name="positionByJob" type="text" ng-model="vm.employeeprofile.positionByJob" id="positionByJob" class="form-control"
+            placeholder="positionByJob">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="sectionCode">sectionCode</label>
+          <input name="sectionCode" type="text" ng-model="vm.employeeprofile.sectionCode" id="sectionCode" class="form-control" placeholder="sectionCode">
+        </div>
+
+
+
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.employeeprofile._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
