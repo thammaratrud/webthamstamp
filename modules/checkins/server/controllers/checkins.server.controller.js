@@ -129,6 +129,7 @@ exports.userById = function (req, res, next, userid) {
     var all = [];
     for (var i = 0; i < users.length; i++) {
       if (users[i].user) {
+        console.log(users[i].user._id.toString() === userid.toString());
         if (users[i].user._id.toString() === userid.toString()) {
           if (users[i].dateTimeIn) {
             var dateObj = new Date();
@@ -147,6 +148,8 @@ exports.userById = function (req, res, next, userid) {
               } else {
                 status = 'checkin only';
               }
+            }else{
+              status = 'Not checkin';
             }
           } else {
             status = 'Not checkin';
