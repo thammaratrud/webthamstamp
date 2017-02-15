@@ -25,7 +25,10 @@ var CheckinSchema = new Schema({
   lastName: String,
   Lat: String,
   Long: String,
-  remark: String,
+  remark: {
+    in: String,
+    out: String
+  },
   created: {
     type: Date,
     default: Date.now
