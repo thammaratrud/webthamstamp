@@ -148,7 +148,7 @@ exports.userById = function (req, res, next, userid) {
               } else {
                 status = 'checkin only';
               }
-            }else{
+            } else {
               status = 'Not checkin';
             }
           } else {

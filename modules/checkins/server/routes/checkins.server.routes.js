@@ -22,5 +22,5 @@ module.exports = function (app) {
 
   // Finish by binding the Checkin middleware
   app.param('checkinId', checkins.checkinByID);
-  app.param('userid', checkins.userById);  
+  app.param('userid', checkins.userById);
 };
