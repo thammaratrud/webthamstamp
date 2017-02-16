@@ -103,7 +103,7 @@ exports.checkinByID = function (req, res, next, id) {
     });
   }
 
-  Checkin.findById(id).populate('user', 'displayName').exec(function (err, checkin) {
+  Checkin.findById(id).populate('user', 'displayName').populate('user','profileImageURL').exec(function (err, checkin) {
     if (err) {
       return next(err);
     } else if (!checkin) {
