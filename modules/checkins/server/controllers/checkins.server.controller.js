@@ -81,21 +81,13 @@ exports.delete = function (req, res) {
  * List of Checkins
  */
 exports.list = function (req, res) {
-  Checkin.find().sort('-created').populate('user', 'displayName').exec(function (err, checkins) {
+  Checkin.find().sort('-created').populate([{path: 'user', select: 'displayName'},{path: 'user', select: 'profileImageURL'}]).exec(function (err, checkins) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      checkins.find().sort('-created').populate('user', 'profileImageURL').exec(function (err, checkin) {
-        if (err) {
-          return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-          });
-        } else {
-          res.jsonp(checkin);
-        }
-      });
+      res.jsonp(checkins);
     }
   });
 };
