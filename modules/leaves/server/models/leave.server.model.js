@@ -21,6 +21,7 @@ var LeaveSchema = new Schema({
   leaveHalf: Boolean,
   leaveTime: Number,
   approveStatus: String,
+  remark: String,
   leaveStatus: String,
   created: {
     type: Date,
