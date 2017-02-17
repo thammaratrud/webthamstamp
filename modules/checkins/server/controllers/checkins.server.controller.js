@@ -103,7 +103,7 @@ exports.checkinByID = function (req, res, next, id) {
     });
   }
 
-  Checkin.findById(id).populate('user').exec(function (err, checkin) {
+  Checkin.findById(id).populate({path: 'user', select: 'displayName profileImageURL'}).exec(function (err, checkin) {
     if (err) {
       return next(err);
     } else if (!checkin) {
@@ -118,7 +118,7 @@ exports.checkinByID = function (req, res, next, id) {
 
 exports.userById = function (req, res, next, userid) {
   var status = '';
-  Checkin.find().populate('user').exec(function (err, users) {
+  Checkin.find().populate({path: 'user', select: 'displayName profileImageURL'}).exec(function (err, users) {
     if (err) {
       return next(err);
     } else if (!users) {

@@ -68,7 +68,7 @@ var UserSchema = new Schema({
   },
   profileImageURL: {
     type: String,
-    default: 'modules/users/client/img/profile/default.png'
+    default: 'http://res.cloudinary.com/hrpqiager/image/upload/v1487126025/hzc0biwrtmabk6lng4yo.png'
   },
   provider: {
     type: String,
