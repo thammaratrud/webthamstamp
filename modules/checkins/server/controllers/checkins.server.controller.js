@@ -81,7 +81,7 @@ exports.delete = function (req, res) {
  * List of Checkins
  */
 exports.list = function (req, res) {
-  Checkin.find().sort('-created').populate({path: 'user', select: 'displayName', select: 'profileImageURL'}).exec(function (err, checkins) {
+  Checkin.find().sort('-created').populate({path: 'user', select: 'displayName profileImageURL'}).exec(function (err, checkins) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
