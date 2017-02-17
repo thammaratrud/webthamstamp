@@ -14,13 +14,14 @@ var LeaveSchema = new Schema({
     type: String,
     required: 'Please fill email',
   },
-  leaveType: Number,
+  leaveType: String,
   leaveDetail: String,
   leaveStartDateTime: Date,
   leaveEndDateTime: Date,
   leaveHalf: Boolean,
   leaveTime: Number,
   approveStatus: String,
+  leaveStatus: String,
   created: {
     type: Date,
     default: Date.now
