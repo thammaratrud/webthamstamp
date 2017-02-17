@@ -118,7 +118,7 @@ exports.checkinByID = function (req, res, next, id) {
 
 exports.userById = function (req, res, next, userid) {
   var status = '';
-  Checkin.find().populate('user', 'displayName').populate('user','profileImageURL').exec(function (err, users) {
+  Checkin.find().populate('user', 'displayName').populate('user.profileImageURL').exec(function (err, users) {
     if (err) {
       return next(err);
     } else if (!users) {
