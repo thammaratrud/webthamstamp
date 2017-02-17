@@ -15,7 +15,7 @@ var EmployeeprofileSchema = new Schema({
         required: 'Please fill email',
     },
     officeAddress: String,
-    jobTitle: Boolean,
+    jobTitle: String,
     Line: String,
     image: String,
     firstName: String,

@@ -20,7 +20,7 @@ var LeaveSchema = new Schema({
   leaveEndDateTime: Date,
   leaveHalf: Boolean,
   leaveTime: Number,
-  approveStaus: String,
+  approveStatus: String,
   created: {
     type: Date,
     default: Date.now
